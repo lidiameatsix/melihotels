@@ -103,22 +103,6 @@ public class LogIn_Page {
 
 		if (driver.getCurrentUrl().equals("https://www.melia.com/")) {
 			System.out.println("HAY CAPTCHA");
-			File SrcFile = this.capturarPantalla();
-			if (browser.equals("firefox")) {
-				File DestFile = new File("./driver/FIREFOX/screen.png");
-				FileUtils.copyFile(SrcFile, DestFile);
-			}
-
-			else if (browser.equals("chrome")) {
-				File DestFile = new File("./driver/CHROME/screen.png");
-				FileUtils.copyFile(SrcFile, DestFile);
-			} else if (browser.equals("edge")) {
-				File DestFile = new File("./driver/EDGE/screen.png");
-				FileUtils.copyFile(SrcFile, DestFile);
-			} else if (browser.equals("IE")) {
-				File DestFile = new File("./driver/IE/screen.png");
-				FileUtils.copyFile(SrcFile, DestFile);
-			}
 
 			Thread.sleep(1000);
 		} else {
