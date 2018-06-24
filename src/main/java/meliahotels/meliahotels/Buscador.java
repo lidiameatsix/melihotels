@@ -38,13 +38,23 @@ public class Buscador {
 	public String fechaAleatoria(){
 		java.util.Date hoy = new Date();
 		mes = (int) (Math.random()*12+1);
+		int dias = 0;
 		if ((mes == 1)||(mes == 3)||(mes == 5)||(mes == 7)||(mes == 8)||(mes == 10)||(mes == 12)){
-			dia = (int) (Math.random()*31+1);
+			dias = 0;
 		}
 		else if ((mes == 4)||(mes == 6)||(mes == 9)||(mes == 11)){
-			dia = (int) (Math.random()*30+1);
+			dias = 1;
 		}
 		else if (mes == 2){
+			dias = 2;
+		}
+		if (dias==0){
+			dia = (int) (Math.random()*31+1);
+		}
+		else if (dias==1){
+			dia = (int) (Math.random()*30+1);
+		}
+		else if (dias == 2){
 			dia = (int) (Math.random()*28+1);
 		}
 		if (mes == (int) hoy.getMonth()){
@@ -67,7 +77,17 @@ public class Buscador {
 		int dOut = dia;
 		int yearOut = year;
 		String fechaOut = "";
+		int dias = 0;
 		if ((mes == 1)||(mes == 3)||(mes == 5)||(mes == 7)||(mes == 8)||(mes == 10)||(mes == 12)){
+			dias = 0;
+		}
+		else if ((mes == 4)||(mes == 6)||(mes == 9)||(mes == 11)){
+			dias = 1;
+		}
+		else if (mes == 2){
+			dias = 2;
+		}
+		if (dias==0){
 			if (daux > 31){
 				dOut = 31 - dia;
 				dOut = nNoches - dOut;
@@ -77,12 +97,12 @@ public class Buscador {
 					dOut = a1;
 					mesOut = mesOut+1;
 				}
-				else if ((dOut > 30)&&((mes == 4)||(mes == 6)||(mes == 9)||(mes == 11))){
+				else if ((dOut > 30)&&(dias==1)){
 					int a1 = dOut - 30;
 					dOut = a1;
 					mesOut = mesOut+1;
 				}
-				else if ((dOut > 31)&&((mes == 1)||(mes == 3)||(mes == 5)||(mes == 7)||(mes == 8)||(mes == 10)||(mes == 12))){
+				else if ((dOut > 31)&&(dias==0)){
 					int a1 = dOut - 31;
 					dOut = a1;
 					mesOut = mesOut+1;
@@ -92,7 +112,7 @@ public class Buscador {
 				dOut = daux;
 			}
 		} 
-		else if ((mes == 4)||(mes == 6)||(mes == 9)||(mes == 11)){
+		else if (dias==1){
 			if (daux > 30){
 				dOut = 30 - dia;
 				dOut = nNoches - dOut;
@@ -102,12 +122,12 @@ public class Buscador {
 					dOut = a1;
 					mesOut = mesOut+1;
 				}
-				else if ((dOut > 30)&&((mes == 4)||(mes == 6)||(mes == 9)||(mes == 11))){
+				else if ((dOut > 30)&&(dias==1)){
 					int a1 = dOut - 30;
 					dOut = a1;
 					mesOut = mesOut+1;
 				}
-				else if ((dOut > 31)&&((mes == 1)||(mes == 3)||(mes == 5)||(mes == 7)||(mes == 8)||(mes == 10)||(mes == 12))){
+				else if ((dOut > 31)&&(dias==0)){
 					int a1 = dOut - 31;
 					dOut = a1;
 					mesOut = mesOut+1;
@@ -127,12 +147,12 @@ public class Buscador {
 					dOut = a1;
 					mesOut = mesOut+1;
 				}
-				else if ((dOut > 30)&&((mes == 4)||(mes == 6)||(mes == 9)||(mes == 11))){
+				else if ((dOut > 30)&&(dias==1)){
 					int a1 = dOut - 30;
 					dOut = a1;
 					mesOut = mesOut+1;
 				}
-				else if ((dOut > 31)&&((mes == 1)||(mes == 3)||(mes == 5)||(mes == 7)||(mes == 8)||(mes == 10)||(mes == 12))){
+				else if ((dOut > 31)&&(dias==0)){
 					int a1 = dOut - 31;
 					dOut = a1;
 					mesOut = mesOut+1;
